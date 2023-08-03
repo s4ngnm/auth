@@ -1,0 +1,306 @@
+<!DOCTYPE html public "Gerard Braad"> 
+<html manifest="cache.manifest">
+    <head>
+        <title>GAuth</title>
+        <meta charset="utf-8">
+        <meta name="description" content="GAuth Authenticator">
+        <meta name="HandheldFriendly" content="True">
+        <meta http-equiv="cleartype" content="on">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+        <link rel="stylesheet" href="css/jquery.mobile-custom.min.css" />
+        <link rel="stylesheet" href="css/styling.css" />
+        
+        <link rel="stylesheet" href="css/styleIMG.css" />
+        <!--
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        -->
+        <link rel="stylesheet" href="src/style/style.css" />
+        <!-- purposely at the top -->
+        <script src="lib/jquery-2.1.3.min.js"></script>
+        <script src="js/init.js"></script>
+        <script src="lib/jquery.mobile-1.4.5.min.js"></script>
+        <script src="lib/jssha-1.31.min.js"></script>
+        <script src="lib/FileSaver.js"></script>
+        <script src="js/gauth.js"></script>
+        <script src="js/main.js"></script>
+        <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
+        <link rel="apple-touch-icon" href="img/icon_60.png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="img/icon_120.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="img/icon_152.png">
+    </head>
+    <body>
+
+        <section data-role="panel" id="panel" data-position="left" data-theme="a" data-display="overlay">
+            <ul data-role="listview">
+                <li><a id="panelheader" href="#main" data-rel="close">&nbsp;</a></li>
+                <li data-l10n-id="menu-keys" data-icon="lock"><a href="#main" data-rel="close">2FA Keys</a></li>
+                <li data-l10n-id="menu-weblinks" data-icon="gear"><a href="#weblinks" data-rel="close">Page Links & Quy trình Via</a></li>
+                <li data-l10n-id="menu-toolfb" data-icon="gear"><a href="#toolfb" data-rel="close">Tool share Pixel BM</a></li>
+                <li data-l10n-id="menu-settings" data-icon="gear"><a href="#settings" data-rel="close">Settings & Exports 2FA</a></li>
+                <li data-l10n-id="menu-about" data-icon="info"><a href="#about" data-rel="close">About</a></li>
+            </ul>
+        </section>
+
+        <section data-role="page" id="main" data-theme="a">
+            <header data-role="header">
+                <h1>&nbsp;</h1>
+                <a href="#panel" class="header-icon" data-l10n-id="header-menu" data-role="button" data-iconpos="notext" data-icon="bars" data-iconpos="notext">Menu</a>
+                <a id="edit" class="header-icon" data-l10n-id="header-edit" data-role="button" data-iconpos="notext" data-icon="edit" data-iconpos="notext">Edit</a>
+            </header>
+
+            <div class="main-wrapper">
+                <h2>Multi-factor Authentication & Notepad Using LocalStorage</h2>
+                <h4 align="center">Lưu trữ thông tin Via & 2FA data offline nội bộ riêng từng profile trình duyệt bảo mật an toàn nhá :)))</h4>
+                <div class="panels-wrap">
+                  
+                    <div class="left-panel">
+                    <!--<div class="insert-box cardbox">-->
+                        <div data-role="content">
+                            <ul data-role="listview" data-inset="true" data-theme="a" data-split-theme="a" data-split-icon="delete" id="accounts">
+                                <li id="accountsHeader" data-l10n-id="title-keys" data-role="list-divider">One-time 2FA Code<span class="ui-li-count" id='updatingIn'>..</span></li>
+                            </ul>
+                            <a id="addButton" data-l10n-id="keys-add" href="#add" data-role="button" class="ui-btn ui-icon-plus ui-btn-icon-left">Add</a>
+                        </div>             
+                    <!------------
+                    </div>-->
+                </div>
+
+                <div class="right-panel">                                        
+                    <div class="insert-box cardbox">
+                        <div data-role="content" class="container my-3">
+                            <h1 class="mb-3" style="text-align: center;">Your Privacy In Your Hand</h1>
+                            <hr>
+                            <div class="card shadow-lg p-3 mb-5 rounded bg-dark text-white">
+                                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                                <div class="card-body">
+                                    <input class="form-control mb-2" id="addTitle" type="text" placeholder="Title">
+                                <!-- <h5 class="card-title">Add a Note</h5> -->
+                                <div class="form-group">
+                                    <!-- <label for="exampleFormControlTextarea1">Example textarea</label> -->
+                                    <textarea class="form-control" id="addTxt" placeholder="Your Note" rows="3"></textarea>
+                                </div>
+                                <button class="btn btn-primary" id="addBtn" style="width: 250px">Add Note</button>
+                                </div>
+                            </div>                                                 
+                        </div>
+                    </div>
+                </div>
+                <!------------------IMG---------------->
+                <div data-role="content">
+                    <!-----IMG------>
+                    <div class="containerIMG">
+                        <input type="file" id="file" />
+                        <p><span id="count"></span> image stored in your local Storage</p>
+                        <div id="image_grid"></div>
+                    </div>
+                    <!---IMG----->
+                </div>
+                <!------------------IMG---------------->
+            </div>
+
+
+            <div class="display-all-box cardbox">
+                <h1 class="mt-5">Your Notes</h1>
+                <hr>
+                    <div data-role="content" id="notes" class="row container-fluid"></div>
+            </div>
+            
+        </div>    
+        </section>
+<!------------------------------------------------------------------------------------------>
+        <section data-role="page" id="add" data-theme="a">
+            <header data-role="header">
+                <h1 data-l10n-id="title-add">Add account</h1>
+                <a href="#panel" class="header-icon" data-l10n-id="header-menu" data-role="button" data-iconpos="notext" data-icon="bars" data-iconpos="notext">Menu</a>
+            </header>
+            <div data-role="content">
+                <div>
+                    <form>
+                        <label data-l10n-id="add-name" for="keyAccount">Account name:</label>
+                        <input type="text" name="keyAccount" id="keyAccount" value="" autocorrect="off" autocapitalize="off" />
+                        <label data-l10n-id="add-secret" for="keySecret">Secret key:</label>
+                        <input type="text" name="keySecret" id="keySecret" value="" autocorrect="off" autocapitalize="off" />
+                    </form>
+                </div>
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a id="addKeyButton" data-l10n-id="keys-add" data-role="button" class="ui-btn ui-icon-plus ui-btn-icon-left">Add</a>
+                    <a id="addKeyCancel" data-l10n-id="add-cancel" href="#main" data-role="button" data-rel="back">Cancel</a>
+                </div>
+            </div>
+        </section>
+
+<!--------------------------------------------------------------------------------------------------------------->
+        <section data-role="page" id="weblinks" data-theme="a">
+            <header data-role="header">
+                <h1 data-l10n-id="title-weblinks">Page Links Facebook Helper & Quy trình Via</h1>
+                <a data-l10n-id="header-menu" href="#panel" class="header-icon" data-role="button" data-iconpos="notext" data-icon="bars" data-iconpos="notext">Menu</a>
+            </header>
+            <div class="main-wrapper">
+                <div class="panels-wrap">
+                    <div class="left-panel">
+                        <div class="insert-box cardbox">
+                        <div data-role="content">
+                            <h2 style="color: #2e6c80;">Quy trình Log Via mới mua về:</h2>
+                            <p>1.Sau khi mua via v&agrave;o : <a href="https://m.facebook.com" target="_blank" rel="noopener noreferrer">m.facebook.com</a> hoặc <a href="https://mbasic.facebook.com" target="_blank" rel="noopener noreferrer">mbasic.facebook.com</a> để Login t&agrave;i khoản tr&aacute;nh bị checkpoint rồi sau đ&oacute; v&agrave;o <a href="https://fb.com" target="_blank" rel="noopener noreferrer">fb.com</a> b&igrave;nh thường.<br />Sau khi login ng&acirc;m tối thiểu 1 ng&agrave;y trước khi v&agrave;o tr&igrave;nh quản l&yacute; quảng c&aacute;o</p>
+                            <p>2.Logout to&agrave;n bộ session thiết bị cũ rồi đợi 2h sau mới change pass via: <a href="https://www.facebook.com/settings?tab=security" target="_blank" rel="noopener noreferrer">https://www.facebook.com/settings?tab=security</a></p>
+                            <p>3.Log Via ngâm sau 1-2h mới đổi pass Via.<br />Link 1661 đổi pass Via tr&aacute;nh Checkpoint: <a href="https://www.facebook.com/privacy/review/?review_id=573933453011661&amp;source=unknown" target="_blank" rel="noopener noreferrer">https://www.facebook.com/privacy/review/?review_id=573933453011661&amp;source=unknown</a></p>
+                            <p>4.Link change pass hotmail (vừa login vừa th&ecirc;m/đổi mail kh&ocirc;i phục v&agrave; change pass lu&ocirc;n:<br /><a href="https://account.live.com/password/Change?mkt=en-US&amp;refd=account.microsoft.com&amp;refp=/&amp;fref=home.drawers.security.change-password" target="_blank" rel="noopener noreferrer">https://account.live.com/password/Change?mkt=en-US&amp;refd=account.microsoft.com&amp;refp=/&amp;fref=home.drawers.security.change-password</a></p>
+                            <p>Kh&ocirc;ng n&ecirc;n đổi mail kh&aacute;c dễ bị checkpoint nick.</p>
+                            <p>5.Tắt/bật lại 2FA: <a href="https://accountscenter.facebook.com/password_and_security/two_factor" target="_blank" rel="noopener noreferrer">https://accountscenter.facebook.com/password_and_security/two_factor</a></p>
+                            <p>6.Check mail gần đ&acirc;y v&agrave; mail ẩn</p>
+                            <p>&nbsp; &nbsp;6.1<a href="https://www.facebook.com/recent_emails/security/?hide_back_button=1&amp;from_accounts_center=1" target="_blank" rel="noopener noreferrer">https://www.facebook.com/recent_emails/security/?hide_back_button=1&amp;from_accounts_center=1</a></p>
+                            <p>&nbsp; &nbsp;6.2 <a href="https://accountscenter.facebook.com/personal_info" target="_blank" rel="noopener noreferrer">https://accountscenter.facebook.com/personal_info</a></p>
+                            <p>7.V&agrave;o trang c&aacute; nh&acirc;n lấy th&ocirc;ng tin via v&agrave; lưu lại: <br />+ T&ecirc;n via<br />+ Link trang c&aacute; nh&acirc;n<br />+ ng&agrave;y th&aacute;ng năm sinh<br />- T&igrave;m v&agrave; đổi ảnh đại diện của via th&agrave;nh ảnh ch&acirc;n dung r&otilde; mặt nhất, lưu ảnh về để l&agrave;m ph&ocirc;i xmdt, có avatar chân dung rõ mặt rồi thì lưu ảnh lại thôi ko thay mới<br />- V&agrave;o link <a href="https://facebook.com/accountquality" target="_blank" rel="noopener noreferrer">facebook.com/accountquality</a> check chất lượng t&agrave;i khoản của via<br />- V&agrave;o tr&igrave;nh quản l&yacute; quảng c&aacute;o, bấm 'Đồng &yacute;' với quy định của Facebook, sau đ&oacute; quay trở về facebook ng&acirc;m</p>
+                            <p>&nbsp;</p>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="right-panel">
+                        <div class="display-all-box cardbox">
+                        <div data-role="content" class="container my-3">
+                            <p><strong>Code change mail cho Via Clone:</strong></p>
+                            <p><a href="https://www.facebook.com/settings?tab=account&amp;section=email&amp;view" target="_blank" rel="noopener noreferrer">https://www.facebook.com/settings?tab=account&amp;section=email&amp;view </a></p>
+                            <p>V&agrave;o link n&agrave;y rồi nhấn F12 d&aacute;n v&agrave;o Console sau đ&oacute; t&igrave;m chổ c&oacute; email trong nh&aacute;y k&eacute;p thay bằng email của m&igrave;nh rồi Enter</p>
+                            <p>Kiểm tra email v&ocirc; chưa bằng link : <a href="https://accountscenter.facebook.com/personal_info" target="_blank" rel="noopener noreferrer">https://accountscenter.facebook.com/personal_info</a></p>
+                            <p>Sau đ&oacute; check h&ograve;m thư email, v&agrave;o mail confirm Facebook vừa gửi -&gt; Nhấp chuột phải v&agrave;o N&uacute;t "Confirm" m&agrave;u xanh dương rồi chọn Copy link -&gt; sau đ&oacute; d&aacute;n link v&agrave;o tr&igrave;nh duyệt đang log via l&agrave; done x&aacute;c minh email.</p>
+                            <p><strong>Code F12:</strong></p>
+                            <p>var spinR = require(["SiteData"]).__spin_r; var spinB = require(["SiteData"]).__spin_b; var spinT = require(["SiteData"]).__spin_t; var jazoest = require(["SprinkleConfig"]).jazoest; var fbdtsg = require(["DTSGInitData"]).token; var userId = require(["CurrentUserInitialData"]).USER_ID; var hsi = require(["SiteData"]).hsi; var email = "g9p4j4kt@duck.com"; var url = "https://www.facebook.com/add_contactpoint/dialog/submit/"; var data = "jazoest=22134&amp;fb_dtsg=" + fbdtsg + "&amp;next=&amp;contactpoint=" + email + "&amp;__user=" + userId + "&amp;__a=1&amp;__dyn=&amp;__req=1&amp;__be=1&amp;__pc=PHASED%3ADEFAULT&amp;dpr=1&amp;__rev=&amp;__s=&amp;__hsi=" + hsi + "&amp;__spin_r=" + spinR + "&amp;__spin_b=" + spinB + "&amp;__spin_t=" + spinT; fetch(url, { method: 'POST', body: data, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).then(e =&gt; e.text()).then(e =&gt; {})</p>
+                            <p>&nbsp;</p>
+
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section data-role="page" id="toolfb" data-theme="a">
+            <header data-role="header">
+                <h1 data-l10n-id="title-toolsfb">Facebook Helper & Tool Share Pixel BM</h1>
+                <a data-l10n-id="header-menu" href="#panel" class="header-icon" data-role="button" data-iconpos="notext" data-icon="bars" data-iconpos="notext">Menu</a>
+                <meta http-equiv="content-type" content="text/html" />
+                <meta name="author" content="iljimae" />
+                <!--
+                <link type="text/css" rel="stylesheet"
+                    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+                
+                <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.js"></script>-->
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+            </header>
+            <div class="main-wrapper">
+                <div class="panels-wrap">
+                    <div class="left-panel">
+                        <div class="insert-box cardbox">
+                            <div data-role="content">
+                                <div class="col-md-12">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">Tool share Pixel BM</h4>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="form-group col-md-3">
+                                                <label for="tokens">Token: <b id="name_admin"></b></label>
+                                                <input id="token_admin" class="form-control" value="EAAGNO4a7r2wBAOVLUoT8Iw5XmiVQS0AEjFEUM60ZAR4bl9mCuzJo9PIdH14TeZCflZBDO254h3gdhdhsBOCrnWwTFqNLgI4cELmchybLiZBqy05DlMdz3IVbqhMQjxv1Hhn6vTenmhfMwlZC11LsEd2PaMum81hMYThH03wGHUzpZAHGzDdwye" />
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <label for="tokens">ID BM:</label>
+                                                <input id="id_bm" class="form-control" value="209160660102762" />
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <label for="tokens">ID Pixel:</label>
+                                                <input id="id_pixel" class="form-control" value="422383215559922" />
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <label for="tokens">ID TKQC:</label>
+                                                <input id="id_tkqc" class="form-control" value="" />
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="text-center">
+                                                <button type="submit" class="btn btn-success" id="add_tkqc" style="width: 250px">Thêm Tkqc</button>
+                                                <button type="submit" class="btn btn-primary" id="share_pixel" style="width: 250px">Share pixel</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-panel">
+                        <div class="display-all-box cardbox">
+                            <div data-role="content" class="container my-3">
+                                <div class="col-md-12">
+                                    <label for="times">Logs: </label>
+                                    <div class="panel panel-primary">
+                                        <div class="panel-body">
+                                            <div class="form-group col-sm-12">
+                                                <p class="alert alert-info logs" style="overflow:hidden; height: 150px">
+                                                    <b id="noti"></b>
+                                                </p>
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <textarea id="result1" class="form-control" cols="30" rows="7"></textarea>
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <textarea id="result2" class="form-control" cols="30" rows="7"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="display-all-box cardbox">
+                    <h1 class="mt-5">Notes</h1>
+                    <hr>
+                    <div data-role="content">
+                        <p><a href="https://developers.facebook.com/apps/creation/" target="_blank" rel="noopener noreferrer">https://developers.facebook.com/apps/creation/</a></p>
+                        
+                        <p><a href="https://developers.facebook.com/tools/explorer/?method=GET&path=nhậpIDcủaBMvàođây%2Fbusiness_users&version=v13.0" target="_blank" rel="noopener noreferrer">https://developers.facebook.com/tools/explorer/?method=GET&path=nhậpIDcủaBMvàođây%2Fbusiness_users&version=v13.0</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+<!------------------------------------------------------------------------------------------------------------------------------------------------>
+        <section data-role="page" id="settings" data-theme="a">
+            <header data-role="header">
+                <h1 data-l10n-id="title-settings">Settings</h1>
+                <a data-l10n-id="header-menu" href="#panel" class="header-icon" data-role="button" data-iconpos="notext" data-icon="bars" data-iconpos="notext">Menu</a>
+            </header>
+            <div data-role="content">
+                <p>
+                    <a id="export" data-l10n-id="settings-export" data-role="button" data-theme="a">Export keys</a>
+                </p>
+            </div>
+        </section>
+
+        <section data-role="page" id="about" data-theme="a">
+            <header data-role="header">
+                <h1 data-l10n-id="title-about">About</h1>
+                <a href="#panel" class="header-icon" data-l10n-id="header-menu" data-role="button" data-iconpos="notext" data-icon="bars" data-iconpos="notext">Menu</a>
+            </header>
+            <div data-role="content">
+                <p>A simple application for multi-factor authentication, written in HTML using jQuery Mobile (and PhoneGap), jsSHA and LocalStorage</p>
+                <p><ul>
+                    <li>Learn why<br/><a target=”_blank” href="http://lifehacker.com/5932700/please-turn-on-two+factor-authentication">Please, turn on two-factor authentication</a></li>
+                    <li>Online<br/><a target=”_blank” href="http://gauth.apps.gbraad.nl/">http://gauth.apps.gbraad.nl/</a></li>
+                    <li>Source code<br/><a target=”_blank” href="http://github.com/gbraadnl/gauth/">http://github.com/gbraadnl/gauth/</a></li>
+                    <li>Thanks to Russell Sayers<br/><a target=”_blank” href="http://blog.tinisles.com/2011/10/google-authenticator-one-time-password-algorithm-in-javascript/">TOTP Algorithm</a></li>
+                </ul></p>
+            </div>
+        </section>   
+
+    <!--
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <script src="js/index.js"></script>
+    <script src="js/sharepixel.js"></script>
+    <script src="lib/imgupload.js"></script>
+    </body>
+
+</html>
