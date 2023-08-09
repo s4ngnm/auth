@@ -6,15 +6,19 @@ css/images/ajax-loader.gif
 css/jquery.mobile-1.4.5.min.css
 css/jquery.mobile-custom.min.css
 css/styling.css
+css/styleIMG.css
 img/flattr-badge-large.png
 index.html
 js/init.js
 js/gauth.js
 js/main.js
+js/sharepixel.js
+js/index.js
 lib/jquery-2.1.3.min.js
 lib/jquery.mobile-1.4.5.min.js
 lib/jssha-1.31.min.js
 lib/FileSaver.js
+lib/imgupload.js
 
 NETWORK:
 *
