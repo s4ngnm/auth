@@ -46,7 +46,7 @@
             <header data-role="header">
                 <h1 data-l10n-id="title-keys">Multi-factor Authentication & Notepad Using LocalStorage - Sang Nguyen Minh</h1>
                 <a href="#panel" class="header-icon" data-l10n-id="header-menu" data-role="button" data-iconpos="notext" data-icon="bars" data-iconpos="notext">Menu</a>
-                <a id="edit" class="header-icon" data-l10n-id="header-edit" data-role="button" data-iconpos="notext" data-icon="edit" data-iconpos="notext">Edit</a>
+                <!--<a id="edit" class="header-icon" data-l10n-id="header-edit" data-role="button" data-iconpos="notext" data-icon="edit" data-iconpos="notext">Edit</a>-->
             </header>
 
             <div class="main-wrapper">
@@ -67,6 +67,11 @@
                     
                     </div>
                     <div class="insert-box cardbox">
+                        
+                        <p>Select images, they will be stored in your profile browser. Selecting big images (> 2MB) can crash your browser.</p>
+                        <input id="image-upload" type="file" width="200"/>
+                        <ul id="image-collection"></ul>
+                        <hr>
                         <div data-role="content" class="container my-3">
                             <h1 class="mb-3" style="text-align: center;">Your Privacy In Your Hand</h1>
                             <hr>
@@ -89,11 +94,6 @@
                                 <div data-role="content" id="notes" class="row container-fluid"></div>
                             </div>
 
-                            <hr>
-                            <p>Select images, they will be stored in your profile browser. Selecting big images (> 2MB) can crash your browser.</p>
-                            <input id="image-upload" type="file" width="200"/>
-                            <ul id="image-collection">
-                            </ul>
 
                         </div>
                     </div>
