@@ -49,6 +49,7 @@ hr {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 50%;
+  overflow-wrap: break-word;
 }
 
 .panels-wrap .right-panel {
