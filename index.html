@@ -80,8 +80,8 @@
                     </div>
                     <div class="insert-box cardbox">
                         <div data-role="content" class="container my-3">
-                            <h1 class="mb-3" style="text-align: center;">Your Privacy In Your Hand</h1>
-                            <hr>
+                            <!--<h1 class="mb-3" style="text-align: center;">Your Privacy In Your Hand</h1>
+                            <hr>--> 
                             <form id="new-task-form">
                               <input type="text" name="new-task-input" id="new-task-input" placeholder="Your Note Here..." />
                               <input type="submit" id="new-task-submit" value="Add Note" />
@@ -237,48 +237,50 @@
 
             </div>
 
+            <section class="task-list">
+                <h2>Your Note</h2> 
+                           
+               <div id="tasks">
+                   <!-- <div class="task">
+                               <div class="content">
+                                   <input type="text" class="text" value="My 1st task" readonly />
+                               </div>
+                               <div class="actions">
+                                   <button class="edit">Edit</button>
+                                   <button class="delete">delete</button>
+                               </div>
+                           </div> -->
+                 </div>
+           </section>
+                <!--Warning Alert for Empty Task -->
+               <div class="alert hide" id="custAlert">
+                   <span class="fas fa-exclamation-circle"></span>
+                   <span class="msg">Warning: An empty Note cannot be added!</span>
+                   <div class="close-button close-btn">
+                   <span class="fas fa-times"></span>
+                   </div>
+               </div>
+
+               <!-- Warning Alert for Saving Blank Task -->
+               <div class="alert hide" id="custAlert1">
+                   <span class="fas fa-exclamation-circle"></span>
+                   <span class="msg">Warning: Can not Save blank Note!</span>
+                   <div class="close-button close-btn1">
+                   <span class="fas fa-times"></span>
+                   </div>
+               </div>
+
+               <!-- Warning Alert for Adding Duplicate Task -->
+               <div class="alert hide" id="custAlert2">
+                   <span class="fas fa-exclamation-circle"></span>
+                   <span class="msg">Warning: Cannot add same Note again</span>
+                   <div class="close-button close-btn2">
+                   <span class="fas fa-times"></span>
+                   </div>
+               </div>
+
+
             <div class="display-all-box cardbox" >
-                <section class="task-list">
-                     <h2>Your Note</h2> 
-                                
-                    <div id="tasks">
-                        <!-- <div class="task">
-                                    <div class="content">
-                                        <input type="text" class="text" value="My 1st task" readonly />
-                                    </div>
-                                    <div class="actions">
-                                        <button class="edit">Edit</button>
-                                        <button class="delete">delete</button>
-                                    </div>
-                                </div> -->
-                      </div>
-                </section>
-                     <!--Warning Alert for Empty Task -->
-                    <div class="alert hide" id="custAlert">
-                        <span class="fas fa-exclamation-circle"></span>
-                        <span class="msg">Warning: An empty Note cannot be added!</span>
-                        <div class="close-button close-btn">
-                        <span class="fas fa-times"></span>
-                        </div>
-                    </div>
-
-                    <!-- Warning Alert for Saving Blank Task -->
-                    <div class="alert hide" id="custAlert1">
-                        <span class="fas fa-exclamation-circle"></span>
-                        <span class="msg">Warning: Can not Save blank Note!</span>
-                        <div class="close-button close-btn1">
-                        <span class="fas fa-times"></span>
-                        </div>
-                    </div>
-
-                    <!-- Warning Alert for Adding Duplicate Task -->
-                    <div class="alert hide" id="custAlert2">
-                        <span class="fas fa-exclamation-circle"></span>
-                        <span class="msg">Warning: Cannot add same Note again</span>
-                        <div class="close-button close-btn2">
-                        <span class="fas fa-times"></span>
-                        </div>
-                    </div>
 
             </div>
             
