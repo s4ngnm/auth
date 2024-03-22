@@ -124,7 +124,9 @@ main {
   padding: 1rem;
   border-radius: 1rem;
   margin-bottom: 1rem;
-  overflow-x: break-word;
+  
+  display: block;
+  margin: 5px;
 }
 
 .task .content {
