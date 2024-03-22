@@ -1,3 +1,4 @@
+/*
 :root {
   --dark: #374151;
   --darker: #1f2937;
@@ -44,7 +45,7 @@ header h1 {
   width: 100%;
   background: var(--dark)
 }
-
+*/
 #new-task-form {
   display: flex;
 }
