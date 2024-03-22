@@ -38,14 +38,14 @@ header h1 {
   margin-bottom: 1rem;
 }
 
-
+*/
 .header-section {
   position: sticky;
   top: 0;
   width: 100%;
   background: var(--dark)
 }
-*/
+
 #new-task-form {
   display: flex;
 }
