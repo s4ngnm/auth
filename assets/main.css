@@ -57,7 +57,7 @@ button {
   outline: none;
   background: none;
 }
-
+/*
 #new-task-input {
   flex: 1 1 0%;
   background-color: var(--darker);
@@ -82,7 +82,7 @@ button {
   cursor: pointer;
   transition: 0.4s;
 }
-
+*/
 #new-task-submit:hover {
   opacity: 0.8;
 }
