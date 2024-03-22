@@ -72,6 +72,21 @@ button {
   color: var(--gray);
 }
 */
+#new-task-input {
+  width: 100%;
+  margin: 16px 0 16px -6px;
+  flex: 1 1 0%;
+  background-color: var(--light);
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-right: 1rem;
+  color: var(--light);
+  font-size: 1.25rem;
+}
+
+#new-task-input::placeholder {
+  color: var(--gray);
+}
 #new-task-submit {
   color: var(--gold);
   font-size: 1.25rem;
