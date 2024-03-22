@@ -10,7 +10,7 @@
   --aqua1: #7fffd4;
   --aqua: #00ffff;
 }
-/*
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -23,7 +23,7 @@ body {
   color: #fff;
   overflow-x: hidden;
 }
-
+/*
 header {
   padding: 2rem 1rem;
   max-width: 800px;
