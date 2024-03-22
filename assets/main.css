@@ -125,14 +125,11 @@ main {
   border-radius: 1rem;
   margin-bottom: 1rem;
   
-  display: block;
-  margin: 5px;
 }
 
 .task .content {
   flex: 1 1 0%;
-  
-  overflow-x: break-word;
+
 }
 
 .task .content .text {
@@ -143,6 +140,8 @@ main {
   display: block;
   transition: 0.4s;
   
+  height: fit-content;
+  overflow-x: break-word;
 }
 
 .task .content .text:not(:read-only) {
