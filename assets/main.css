@@ -74,7 +74,6 @@ button {
 #new-task-input {
   width: 100%;
   top: 0;
-  float: right;
 }
 
 #new-task-input::placeholder {
