@@ -45,7 +45,7 @@ header h1 {
   width: 100%;
   background: var(--dark)
 }
-*/
+
 #new-task-form {
   display: flex;
 }
@@ -97,7 +97,7 @@ main {
   width: 100%;
   margin: 0 auto;
 }
-
+*/
 .task-list {
   padding: 1rem;
 }
