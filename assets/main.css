@@ -3,7 +3,7 @@
   --dark: #374151;
   --darker: #1f2937;
   --darkest: #111827;
-  --gray: #c6ccd8;
+  --gray: #e3e6ecb7;
   --light: #eee;
   --gold: #ff960c;
   --purple: #8b5cf6;
@@ -48,6 +48,8 @@ header h1 {
 
 #new-task-form {
   display: flex;
+  width: 100%;
+  
 }
 
 input,
@@ -69,6 +71,12 @@ button {
 }
 
 */
+#new-task-input {
+  width: 100%;
+  top: 0;
+  float: right;
+}
+
 #new-task-input::placeholder {
   color: var(--gray);
 }
@@ -131,6 +139,7 @@ main {
   width: 100%;
   display: block;
   transition: 0.4s;
+  overflow-x: break-word;
 }
 
 .task .content .text:not(:read-only) {
