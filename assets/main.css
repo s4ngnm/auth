@@ -72,6 +72,9 @@ button {
 
 */
 #new-task-input {
+  flex: 1 1 0%;
+  color: var(--light);
+  font-size: 1.25rem;
   width: 100%;
   top: 0;
 }
