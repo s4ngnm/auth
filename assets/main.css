@@ -87,6 +87,7 @@ button {
   color: var(--gold);
   font-size: 1.0rem;
   font-weight: 700;
+  text-transform: uppercase;
   /*background-image: linear-gradient(to right, var(--gold), var(--purple));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;*/
