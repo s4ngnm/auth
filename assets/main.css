@@ -82,10 +82,10 @@ button {
 #new-task-input::placeholder {
   color: var(--darker);
 }
-/*
+
 #new-task-submit {
   color: var(--gold);
-  font-size: 1.25rem;
+  font-size: 1.0rem;
   font-weight: 700;
   background-image: linear-gradient(to right, var(--gold), var(--purple));
   -webkit-background-clip: text;
@@ -93,7 +93,7 @@ button {
   cursor: pointer;
   transition: 0.4s;
 }
-*/
+
 #new-task-submit:hover {
   opacity: 0.8;
 }
