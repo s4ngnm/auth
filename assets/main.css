@@ -93,7 +93,6 @@ button {
   cursor: pointer;
   transition: 0.4s;
 }
-
 */
 #new-task-submit:hover {
   opacity: 0.8;
