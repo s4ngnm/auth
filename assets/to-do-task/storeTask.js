@@ -15,7 +15,7 @@ window.addEventListener("load", () => {
   }
 
   function headingTask() {
-    heading.innerText = "Tasks";
+    heading.innerText = "Your Notes";
     if (task_listl.length > 0) taskhead.prepend(heading);
   }
 
@@ -120,7 +120,7 @@ window.addEventListener("load", () => {
 
       task_delete_el.addEventListener("click", (e) => {
         // Ask for confirmation before deleting
-        const isConfirmed = confirm("Are you sure you want to delete this task?");
+        const isConfirmed = confirm("Are you sure you want to delete this note?");
         if (isConfirmed) {
           task_listl.splice(task_listl.indexOf(task), 1);
           localStorage.setItem("to-do-task", JSON.stringify(task_listl));
