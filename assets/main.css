@@ -51,7 +51,7 @@ header h1 {
   
   width: 100%; 
 }
-
+/*
 input,
 button {
   appearance: none;
@@ -59,7 +59,7 @@ button {
   outline: none;
   background: none;
 }
-/*
+
 #new-task-input {
   flex: 1 1 0%;
   background-color: var(--darker);
