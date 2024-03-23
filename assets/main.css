@@ -80,7 +80,7 @@ button {
 }
 
 #new-task-input::placeholder {
-  color: var(--gray);
+  color: var(--darker);
 }
 /*
 #new-task-submit {
