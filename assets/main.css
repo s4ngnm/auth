@@ -172,7 +172,8 @@ main {
 }
 
 .task .actions .edit {
-  background-image: linear-gradient(to right, var(--gold), var(--aqua));
+  /*background-image: linear-gradient(to right, var(--gold), var(--aqua));*/
+  background-image: var(--gold);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
