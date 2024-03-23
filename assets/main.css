@@ -74,7 +74,7 @@ button {
 #new-task-input {
   flex: 1 1 0%;
   color: var(--darker);
-  font-size: 1.25rem;
+  font-size: 1.0rem;
   width: 100%;
   top: 0;
 }
@@ -138,13 +138,11 @@ main {
 .task .content .text {
   color: var(--darkest);
   /*color: var(--light);*/
-  font-size: 1.125rem;
+  font-size: 1.0rem;
   width: 100%;
   display: block;
   transition: 0.4s;
-  
-  height: fit-content;
-  overflow-x: break-word;
+
 }
 
 .task .content .text:not(:read-only) {
